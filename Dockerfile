@@ -4,6 +4,8 @@ WORKDIR /app
 # Setup the environment
 RUN apt-get update
 
+# Needed for command envsubst to work
+RUN apt-get install gettext-base
 # Install curl
 RUN apt-get install -y curl
 # Install unzip
