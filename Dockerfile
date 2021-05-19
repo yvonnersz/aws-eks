@@ -4,8 +4,6 @@ WORKDIR /app
 # Setup the environment
 RUN apt-get update
 
-# aws cli needs less
-RUN apt-get install less -y 
 # Needed for command envsubst to work
 RUN apt-get install gettext-base
 # Install curl
@@ -15,6 +13,8 @@ RUN apt-get install -y unzip
 # Install vim
 RUN apt-get install -y vim
 
+# aws cli needs less
+RUN apt-get install -y less 
 # install awscli
 RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
 RUN unzip awscliv2.zip
@@ -31,3 +31,4 @@ RUN echo "deb [signed-by=/usr/share/keyrings/kubernetes-archive-keyring.gpg] htt
 RUN apt-get update
 RUN apt-get install -y kubectl
 
+RUN which less
