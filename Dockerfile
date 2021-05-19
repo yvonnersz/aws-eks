@@ -4,6 +4,8 @@ WORKDIR /app
 # Setup the environment
 RUN apt-get update
 
+# aws cli needs less
+RUN apt-get install less -y 
 # Needed for command envsubst to work
 RUN apt-get install gettext-base
 # Install curl
